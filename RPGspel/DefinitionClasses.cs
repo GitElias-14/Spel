@@ -1,9 +1,10 @@
 // Packar ihop statsen i en record struct för att kunna använda på ett smidigt sätt
-public readonly record struct StatGroup(double Strength, double Agility, double Intelligence);
+public readonly record struct Stats(int Strength, int Agility, int Intelligence);
+public readonly record struct Multipliers(double Strength, double Agility, double Intelligence);
 
 class Race //Ras grundklass: (i fil för grundklasser)
 {   
-    protected Race (StatGroup stats, int initialHP , string[] celebration) //Konstruktor (protected så att endast ärvande klasser kan skapa raser)
+    protected Race (Stats stats, int initialHP , string[] celebration) //Konstruktor (protected så att endast ärvande klasser kan skapa raser)
     {
         Stats = stats;
         this.initialHP = initialHP;
@@ -11,7 +12,7 @@ class Race //Ras grundklass: (i fil för grundklasser)
     }
 //Variabler:
 //- Styrka, Smidighet, Intelligens (låst efter skapande)
-    public StatGroup Stats { get;}
+    public Stats Stats { get;}
 //- Start HP (låst efter skapande)
     public int initialHP { get; }
 //- En lista på firanden som rasen har när den vinner en strid (låst efter skapande)
@@ -21,7 +22,7 @@ class Race //Ras grundklass: (i fil för grundklasser)
 
 class Character //Karaktär grundklass: (i fil för grundklasser)
 {
-    protected Character (string name, Race race, double xp, StatGroup atkMult, StatGroup defMult) //Konstruktor (protected så att endast ärvande klasser kan skapa karaktärer)
+    protected Character (string name, Race race, double xp, Multipliers atkMult, Multipliers defMult) //Konstruktor (protected så att endast ärvande klasser kan skapa karaktärer)
     {
         Name = name;
         Race = race;
@@ -65,20 +66,19 @@ class Character //Karaktär grundklass: (i fil för grundklasser)
     protected string onDefense { get; set; }
 
 //  - attackMultipliers(styrka, smidighet, intelligens)
-    protected StatGroup atkMultipliers { get; }
+    protected Multipliers atkMultipliers { get; }
 //  - defenseMultipliers(styrka, smidighet, intelligens)
-    protected StatGroup defMultipliers { get; }
+    protected Multipliers defMultipliers { get; }
 
 // Metoder:
 // - OnAttack
 //     - Multiplier för de olika kategorierna (styrka, smidighet och intelligens) som sedan ska multipliceras med rasens stats
     public (string message, double attackPoints) OnAttack()
     {
-        Random rnd = new Random();
         double attackPoints = 
             ((atkMultipliers.Strength * Race.Stats.Strength) + 
             (atkMultipliers.Agility * Race.Stats.Agility) + 
-            (atkMultipliers.Intelligence * Race.Stats.Intelligence))*xp;
+            (atkMultipliers.Intelligence * Race.Stats.Intelligence))*XP;
         // Implementation for OnAttack method
         return (onAttack, attackPoints);            
     }        
@@ -90,7 +90,7 @@ class Character //Karaktär grundklass: (i fil för grundklasser)
         double defensePoints = 
             ((defMultipliers.Strength * Race.Stats.Strength) + 
             (defMultipliers.Agility * Race.Stats.Agility) + 
-            (defMultipliers.Intelligence * Race.Stats.Intelligence))*xp;
+            (defMultipliers.Intelligence * Race.Stats.Intelligence))*XP;
         return (onDefense, defensePoints);            
     }        
 // - ToString
