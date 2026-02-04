@@ -12,3 +12,18 @@ C:\Users\elias\Desktop\Spel\RPGspel\obj\Debug\net10.0\refint\RPGspel.dll
 C:\Users\elias\Desktop\Spel\RPGspel\obj\Debug\net10.0\RPGspel.pdb
 C:\Users\elias\Desktop\Spel\RPGspel\obj\Debug\net10.0\RPGspel.genruntimeconfig.cache
 C:\Users\elias\Desktop\Spel\RPGspel\obj\Debug\net10.0\ref\RPGspel.dll
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\bin\Debug\net10.0\RPGspel.exe
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\bin\Debug\net10.0\RPGspel.deps.json
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\bin\Debug\net10.0\RPGspel.runtimeconfig.json
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\bin\Debug\net10.0\RPGspel.dll
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\bin\Debug\net10.0\RPGspel.pdb
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.AssemblyInfoInputs.cache
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.AssemblyInfo.cs
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.csproj.CoreCompileInputs.cache
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.sourcelink.json
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.dll
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\refint\RPGspel.dll
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.pdb
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\RPGspel.genruntimeconfig.cache
+C:\Users\JOTO\OneDrive - Mälardalens universitet\Csharp\Spel\RPGspel\obj\Debug\net10.0\ref\RPGspel.dll

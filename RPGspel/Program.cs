@@ -1,92 +1,57 @@
-﻿using System;
+﻿using System.Security;
+
 class Client
 {
     static void Main(string[] args)
     {
-        Elf elf = new Elf();
-        Console.WriteLine($"Elf stats - Strength: {elf.strength}, Intelligence: {elf.intelligence}, Agility: {elf.agility}, MaxHP: {elf.maxHP}");
+        Character player = new Jedi("Yoda", new Alien());
+        Console.WriteLine($"{player.ToString()}");
     }
 }
 
-class Race
-{
-    
-   
-    public int strength{ get; }
-    public int intelligence { get; }
-    public int agility { get; }
-    public int maxHP { get; }
-    protected string[] Celebration;
-
-    protected Race ( int strength, int intelligence, int agility, int maxHP , string[] celebration)
-    {
-        
-        this.strength = strength;
-        this.intelligence = intelligence;
-        this.agility = agility;
-        this.maxHP = maxHP;
-        Celebration = celebration;
-    }
+/*
+Grundtanke:
+- Skapa en grundklass för karaktärer
+- Skapa en grundklass för raser
+- Skapa specifika raser som ärver från ras-klassen
+- Skapa specifika karaktärer som ärver från karaktär-klassen
 
 
+Karaktär grundklass: (i fil för grundklasser)
+Variabler:
+- Namn (låst efter skapande)
+- HP (ska kunna modifieras under spelets gång)
+- XP (ska kunna modifieras under spelets gång)
+- Ras från klass (låst efter skapande)
+- Meddelande onAttack
+- Meddelande onDefense
+- attackhMultipliers(styrka, smidighet, intelligens)
+- defenseMultipliers(styrka, smidighet, intelligens)
+
+Metoder:
+- OnAttack
+    - Multiplier för de olika kategorierna (styrka, smidighet och intelligens) som sedan ska multipliceras med rasens stats
+    - Meddelanden som ska skrivas ut beroende på kategori 
+- OnDefense
+    - Samma som OnAttack fast för försvar
+- ToString
+    - Skriver ut karaktärens namn, ras, HP och XP
+
+Ras grundklass: (i fil för grundklasser)
+Variabler:
+- Styrka (låst efter skapande)
+- Smidighet (låst efter skapande)
+- Intelligens (låst efter skapande)
+- Start HP (låst efter skapande)
+- En lista på firanden som rasen har när den vinner en strid (låst efter skapande)
+
+Specifika rasklasser: (lägg detta i egen fil)
+Variabler:
+- Fyll i alla värden från ras-klassen med specifika värden för rasen
+
+Specifika karaktärsklasser: (lägg detta i egen fil)
+Inputs:
+- Fyll i alla värden från karaktär-klassen med specifika värden för karaktären
+*/
 
 
-}
-
-
-class Elf : Race
-{
-    public Elf() : base(4, 6, 7, 30, new string[] { "jippi" })
-    {
-        
-    }
-
-}
-
-abstract class Charachter
-{
-    public string Name { get; }
-    public Race Race { get; }
-    private int hp;
-    public int HP 
-    { 
-        get { return hp; } 
-        set 
-        { 
-            if (value < 0 || value > Race.maxHP)
-            { }
-            hp = value;
-        } 
-    }
-
-    private double xp;
-    public double XP 
-    { 
-        get { return xp; } 
-        set 
-        { 
-            if (value < 0 || value > 10)
-            {
-                throw new ArgumentOutOfRangeException(nameof(XP), "XP must be between 0 and 10");
-            }
-            xp = value;
-        } 
-    }
-
-    protected Charachter(string name, Race race, double xp)
-    {
-        Name = name;
-        Race = race;
-        XP = xp;
-        hp = race.maxHP;
-    }
-
-    public abstract double OnAttack(Random rng);
-    public abstract double OnDefense(Random rng);
-
-    public override string ToString()
-    {
-        return $"Name: {Name}, Race: {Race.GetType().Name}, HP: {HP}, XP: {XP:F2}";
-    }
-
-}
