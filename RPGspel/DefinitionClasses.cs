@@ -3,7 +3,7 @@ public readonly record struct StatGroup(double Strength, double Agility, double 
 
 class Race //Ras grundklass: (i fil för grundklasser)
 {   
-    protected Race (StatGroup stats, int initialHP , string[] celebration) //Konstruktor
+    protected Race (StatGroup stats, int initialHP , string[] celebration) //Konstruktor (protected så att endast ärvande klasser kan skapa raser)
     {
         Stats = stats;
         this.initialHP = initialHP;
@@ -21,7 +21,7 @@ class Race //Ras grundklass: (i fil för grundklasser)
 
 class Character //Karaktär grundklass: (i fil för grundklasser)
 {
-    protected Character (string name, Race race, double xp, StatGroup atkMult, StatGroup defMult) //Konstruktor
+    protected Character (string name, Race race, double xp, StatGroup atkMult, StatGroup defMult) //Konstruktor (protected så att endast ärvande klasser kan skapa karaktärer)
     {
         Name = name;
         Race = race;
@@ -35,36 +35,26 @@ class Character //Karaktär grundklass: (i fil för grundklasser)
     }
 
     //Variabler:
-    //- Namn (låst efter skapande)
-    public string Name { get; }
-    //- Ras från klass (låst efter skapande)
-    public Race Race { get; }
-    //- HP (ska kunna modifieras under spelets gång)
-    public int MaxHP { get; }
-    private int hp;
-    public int HP 
+    public string Name { get; } //- Namn (låst efter skapande genom att inte ha set;)
+    public Race Race { get; } //- Ras från klass (låst efter skapande)
+    public int MaxHP { get; } //- HP maxvärde (hämtat från rasen)
+    private int hp; // Hjälpvariabel för HP propertyn
+    public int HP // Aktuell HP (ska kunna modifieras under spelets gång)
     { 
         get { return hp; } 
-        set 
+        set // Körs varje gång HP ändras så att den inte går under 0 eller över MaxHP (händer det så får vi se över koden då exeption inte ska ske i normala fall)
         { 
-            if (value < 0 || value > MaxHP)
-            {
-                throw new ArgumentOutOfRangeException(nameof(HP), $"HP must be between 0 and {MaxHP}");    
-            }
+            if (value < 0 || value > MaxHP) throw new ArgumentOutOfRangeException(nameof(HP), $"HP must be between 0 and {MaxHP}");    
             hp = value;
         } 
     }
-    //- XP (ska kunna modifieras under spelets gång)
-    private double xp;
-    public double XP 
+    private double xp; // Hjälpvariabel för XP propertyn
+    public double XP //- XP (ska kunna modifieras under spelets gång)
     { 
         get { return xp; } 
         set 
         { 
-            if (value < 0 || value > 10)
-            {
-                throw new ArgumentOutOfRangeException(nameof(XP), "XP must be between 0 and 10");
-            }
+            if (value < 0 || value > 10) throw new ArgumentOutOfRangeException(nameof(XP), "XP must be between 0 and 10");
             xp = value;
         } 
     }

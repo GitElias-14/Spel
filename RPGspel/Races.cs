@@ -1,3 +1,4 @@
+//Specifika rasklasser: (lägg till nya raser här)
 class Elf : Race {
     public Elf() : base(
         stats: new StatGroup(Strength: 4, Agility: 6, Intelligence: 7),
