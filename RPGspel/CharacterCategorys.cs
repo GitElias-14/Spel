@@ -1,4 +1,4 @@
-//Specifika karaktärsklasser: (lägg till nya karaktärsklasser här)
+// Specifika karaktärsklasser: (du kan lägga till nya karaktärsklasser här)
 // Här använder vi statiska variabler för att kunna återanvända värdena för varje ny karaktär av samma typ
 class Warrior : Character {
     private static readonly double InitialXP = 3.70;
