@@ -16,7 +16,7 @@ class Tournament
         this.drawLimit = drawLimit;
     }  
 
-    private void ShuffleParticipants() //Blandning enligt Fisher-Yates (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
+    private void ShuffleParticipants() //Blanda deltagarlistan med Fisher-Yatesmetoden (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
     {
         for (int i = participants.Count-1; i > 0; i--)
         {

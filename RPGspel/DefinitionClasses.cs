@@ -1,8 +1,10 @@
+// Här ligger grunderna till klasserna.
+
 // Packar ihop statsen i en record struct för att kunna använda på ett smidigt sätt
 public readonly record struct Stats(int Strength, int Agility, int Intelligence);
 public readonly record struct Multipliers(double Strength, double Agility, double Intelligence);
 
-class Race //Ras grundklass: (i fil för grundklasser)
+abstract class Race //Ras grundklass abstrakt så man inte ska kunna göra en ras utan innehåll: (i fil för grundklasser)
 {   
     protected Race (Stats stats, int initialHP , string[] celebration) //Konstruktor (protected så att endast ärvande klasser kan skapa raser)
     {
@@ -20,7 +22,7 @@ class Race //Ras grundklass: (i fil för grundklasser)
 
 }
 
-class Character //Karaktär grundklass: (i fil för grundklasser)
+abstract class Character //Karaktär grundklass: (i fil för grundklasser)
 {
     protected Character (string name, Race race, double xp, Multipliers atkMult, Multipliers defMult) //Konstruktor (protected så att endast ärvande klasser kan skapa karaktärer)
     {
